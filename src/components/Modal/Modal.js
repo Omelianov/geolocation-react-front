@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ModalWindow, Overlay, ButtonClose, CancelBtn } from './Modal.styled';
 import { useDispatch } from 'react-redux';
-import { toggleModal } from 'redux/modal/ModalSlice';
+import { toggleModal } from '../../redux/modal/ModalSlice';
 
 const modalRoot = document.querySelector('#modal-root');
 

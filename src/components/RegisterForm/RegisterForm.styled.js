@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import backLogIn from '../../images/login-bg/bg-login-web.jpg';
 import backRegister from '../../images/register-bg/bg-register-desktop.jpg';
 
-import { desktopStyles } from 'styles/breakpoints';
+import { desktopStyles } from '../../styles/breakpoints';
 
 export const MainContainer = styled.main`
   display: flex;

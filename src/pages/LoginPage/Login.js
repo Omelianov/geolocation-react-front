@@ -1,5 +1,5 @@
-import LoginForm from 'components/LoginForm/LoginForm';
-import { ContentContainer, MainContainer } from 'components/RegisterForm/RegisterForm.styled';
+import LoginForm from '../../components/LoginForm/LoginForm';
+import { ContentContainer, MainContainer } from '../../components/RegisterForm/RegisterForm.styled';
 
 
 const Login = () => {

@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { register } from 'redux/authReducer/operations';
-import { CustomButton } from 'components/CustomElements/CustomButton';
+import { register } from '../../redux/authReducer/operations';
+import { CustomButton } from '../CustomElements/CustomButton';
 import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
-import Logotip from '../../images/logo.svg';
+import Logotip from '../../images/logo.jpg';
 import {
   EmailIcon,
   ErrorContainer,
@@ -13,7 +13,7 @@ import {
   InputStyled,
   LabelStyled,
   PasswordIcon,
-} from 'components/LoginForm/LoginForm.styled';
+} from '../LoginForm/LoginForm.styled';
 import { LogotipStyled } from './RegisterForm.styled';
 import { ProgressBar } from './ProgressBar';
 import { useState } from 'react';
@@ -22,7 +22,7 @@ const ValidationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
   password: Yup.string()
     .min(6, 'Must be at least 6 characters')
-    .max(12, 'Must be 12 characters or less')
+    .max(15, 'Must be 15 characters or less')
     .required('Required'),
   passwordConfirm: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Password mismatch')
@@ -60,12 +60,12 @@ const RegisterForm = () => {
           <LogotipStyled>
             <img
               src={Logotip}
-              alt="Logo MoneyGuard"
+              alt="Logo TrackYou"
               width="36px"
               height="36px"
               draggable="false"
             />
-            <h3>MoneyGuard</h3>
+            <h3>TrackYou</h3>
           </LogotipStyled>
 
           <LabelStyled>

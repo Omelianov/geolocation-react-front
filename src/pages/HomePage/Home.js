@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   Container,
   ContainerHeader,
@@ -17,31 +18,28 @@ import {
   AddButton,
   PlusIcon,
 } from './Home.styled';
-import { selectIsLoading } from 'redux/transactionsRedux/transactionsSelectors';
 import Modal from '../../components/Modal/Modal';
 import AddTransaction from '../../components/Add/Add';
 import EditTransaction from '../../components/Edit/Edit';
 import Logout from '../../components/Logout/Logout';
-import { toggleAddModal, toggleEditModal } from 'redux/modal/ModalSlice';
-import { selectModalState, selectModalTypeState } from 'redux/modal/selectors';
+import { toggleAddModal, toggleEditModal } from '../../redux/modal/ModalSlice';
+import { selectModalState, selectModalTypeState } from '../../redux/modal/selectors';
 import { BiPencil } from 'react-icons/bi';
 import { RotatingLines } from 'react-loader-spinner';
 import { TransactionCard } from './TransactionCard/TransactionCard';
-import { transactionSlice } from '../../redux/transactionsRedux/transactionsSlice';
+import { fetchTransactions, deleteItem } from '../../redux/transactionsRedux/transactionsOperations';
 import { ScrollToTopButton } from './ScrollToTopButton/ScrollToTopButton';
+import { transactionSlice } from '../../redux/transactionsRedux/transactionsSlice';
+import { selectIsLoading } from '../../redux/transactionsRedux/transactionsSelectors';
 
 const Home = () => {
-  const { useDispatch, useSelector } = require('react-redux');
-  const {
-    fetchTransactions,
-    deleteItem,
-  } = require('redux/transactionsRedux/transactionsOperations');
   const dispatch = useDispatch();
   const [id, setId] = useState(null);
   const modalType = useSelector(selectModalTypeState);
   const isModalOpen = useSelector(selectModalState);
   const isMobile = useMediaQuery({ minWidth: 240, maxWidth: 767 });
   const isLoading = useSelector(selectIsLoading);
+
 
   const deleteTransactions = id => {
     dispatch(deleteItem(id)).then(() => {
@@ -56,7 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchTransactions());
-  }, [dispatch, fetchTransactions]);
+  }, [dispatch]);
 
   const allTransactions = useSelector(
     state => state[transactionSlice.name].transactions

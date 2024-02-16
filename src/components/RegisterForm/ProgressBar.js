@@ -3,11 +3,11 @@ import zxcvbn from 'zxcvbn';
 import { Progress, ProgressBarWrapper } from './ProgressBar.styled';
 
 export const ProgressBar = ({ password }) => {
-  const [strength, setStrength] = useState(0);
+  const [strength, setStrength] = useState(0); 
 
   useEffect(() => {
-    const passwordStrength = calculatePasswordStrength(password);
-    const limitedStrength = Math.min(passwordStrength.score, 12);
+  const passwordStrength = calculatePasswordStrength(password);
+  const limitedStrength = Math.min(passwordStrength.score, 12);
     setStrength(limitedStrength);
   }, [password]);
 

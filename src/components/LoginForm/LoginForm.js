@@ -1,9 +1,9 @@
-import { CustomButton } from '../CustomButton/CustomButton';
+import { CustomButton } from '../CustomElements/CustomButton';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { logIn } from 'redux/authReducer/operations';
+import { logIn } from '../../redux/authReducer/operations';
 import { Formik } from 'formik';
-import Logotip from '../../images/logo.svg';
+import Logotip from '../../images/logo.jpg';
 import {
   EmailIcon,
   FormStyled,
@@ -14,7 +14,7 @@ import {
   PasswordIcon,
 } from './LoginForm.styled';
 import { toast } from 'react-toastify';
-import { LogotipStyled } from 'components/RegisterForm/RegisterForm.styled';
+import { LogotipStyled } from '../RegisterForm/RegisterForm.styled';
 
 const ValidationSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email address').required('Required'),
@@ -54,12 +54,12 @@ const LoginForm = () => {
         <LogotipStyled>
           <img
             src={Logotip}
-            alt="Logo MoneyGuard"
+            alt="Logo TrackYou"
             width="36px"
             height="36px"
             draggable="false"
           />
-          <h3>MoneyGuard</h3>
+          <h3>TrackYou</h3>
         </LogotipStyled>
 
         <LabelStyled>

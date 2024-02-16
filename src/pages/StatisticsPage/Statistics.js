@@ -1,18 +1,18 @@
-import { SpinnerLoader } from 'components/Spinner/Spinner';
-import { DataTable } from 'components/Statistics/StatisticsDataTable';
-import DatePicker from 'components/Statistics/datePicker';
-import StatiscticsChart from 'components/Statistics/statisticsChart';
+import { SpinnerLoader } from '../../components/Spinner/Spinner';
+import { DataTable } from '../../components/Statistics/StatisticsDataTable';
+import DatePicker from '../../components/Statistics/datePicker';
+import StatiscticsChart from '../../components/Statistics/statisticsChart';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getCategories,
   getStatistics,
-} from 'redux/statistics/statisticsOperations';
+} from '../../redux/statistics/statisticsOperations';
 import {
   selectCategories,
   selectStatisticsData,
-} from 'redux/statistics/statisticsSelectors';
+} from '../../redux/statistics/statisticsSelectors';
 
 const {
   StatSection,
